@@ -112,7 +112,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       ],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:00 AM +UTC)
+      swapsStartBlock: BigInt.fromString('238132768'),
     }
   } else if (selectedNetwork == AVALANCHE_NETWORK_NAME) {
     return {
@@ -142,7 +143,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:02 AM +UTC)
+      swapsStartBlock: BigInt.fromString('2812998'),
     }
   } else if (selectedNetwork == BASE_NETWORK_NAME) {
     return {
@@ -161,7 +163,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:01 AM +UTC)
+      swapsStartBlock: BigInt.fromString('17840527'),
     }
   } else if (selectedNetwork == BLAST_MAINNET_NETWORK_NAME) {
     return {
@@ -180,7 +183,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:01 AM +UTC)
+      swapsStartBlock: BigInt.fromString('6830293'),
     }
   } else if (selectedNetwork == BSC_NETWORK_NAME) {
     return {
@@ -201,7 +205,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:01 AM +UTC)
+      swapsStartBlock: BigInt.fromString('40967672'),
     }
   } else if (selectedNetwork == CELO_NETWORK_NAME) {
     return {
@@ -230,7 +235,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:04 AM +UTC)
+      swapsStartBlock: BigInt.fromString('26959686'),
     }
   } else if (selectedNetwork == MAINNET_NETWORK_NAME) {
     return {
@@ -309,7 +315,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       ],
       poolsToSkip: ['0x8fe8d9bb8eeba3ed688069c3d6b556c9ca258248'],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:11 AM +UTC)
+      swapsStartBlock: BigInt.fromString('20429973'),
     }
   } else if (selectedNetwork == MATIC_NETWORK_NAME) {
     return {
@@ -331,7 +338,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       tokenOverrides: [],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:00 AM +UTC)
+      swapsStartBlock: BigInt.fromString('60046224'),
     }
   } else if (selectedNetwork == OPTIMISM_NETWORK_NAME) {
     return {
@@ -370,7 +378,8 @@ export function getSubgraphConfig(): SubgraphConfig {
         '0x1ffd370f9d01f75de2cc701956886acec9749e80',
       ],
       poolMappings: OPTIMISM_POOL_MAPPINGS,
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:01 AM +UTC)
+      swapsStartBlock: BigInt.fromString('123435812'),
     }
   } else if (selectedNetwork == ZKSYNC_ERA_NETWORK_NAME) {
     return {
@@ -401,7 +410,8 @@ export function getSubgraphConfig(): SubgraphConfig {
       ],
       poolsToSkip: [],
       poolMappings: [],
-      swapsStartBlock: BigInt.zero(),
+      // First block since August 1st, 2024 UTC (Aug-01-2024 12:00:00 AM +UTC)
+      swapsStartBlock: BigInt.fromString('40538399'),
     }
   } else {
     throw new Error('Unsupported Network')
