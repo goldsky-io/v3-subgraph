@@ -20,7 +20,7 @@ export enum ChainId {
 const ARBITRUM_ONE_NETWORK_NAME = 'arbitrum-one'
 const AVALANCHE_NETWORK_NAME = 'avalanche'
 const BASE_NETWORK_NAME = 'base'
-const BLAST_MAINNET_NETWORK_NAME = 'blast-mainnet'
+const BLAST_MAINNET_NETWORK_NAME = 'blast'
 const BSC_NETWORK_NAME = 'bsc'
 const CELO_NETWORK_NAME = 'celo'
 const MAINNET_NETWORK_NAME = 'mainnet'
