@@ -64,6 +64,12 @@ export function handleSwapHelper(event: SwapEvent, subgraphConfig: SubgraphConfi
       whitelistTokens,
     ).div(BigDecimal.fromString('2'))
 
+    // Update the pool with the new active liquidity, price, and tick.
+    pool.liquidity = event.params.liquidity
+    pool.sqrtPrice = event.params.sqrtPriceX96
+    pool.totalValueLockedToken0 = pool.totalValueLockedToken0.plus(amount0)
+    pool.totalValueLockedToken1 = pool.totalValueLockedToken1.plus(amount1)
+
     // updated pool ratess
     const prices = sqrtPriceX96ToTokenPrices(pool.sqrtPrice, token0 as Token, token1 as Token)
     pool.token0Price = prices[0]

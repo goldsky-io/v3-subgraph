@@ -16,6 +16,7 @@ export function handleInitializeHelper(event: Initialize, subgraphConfig: Subgra
 
   // update pool sqrt price and tick
   const pool = Pool.load(event.address.toHexString())!
+  pool.sqrtPrice = event.params.sqrtPriceX96
   pool.save()
 
   // update token prices
