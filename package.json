@@ -5,6 +5,7 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
+    "generate": "node generate.js",
     "build": "run-s codegen && graph build",
     "build:docker": "docker build -t matchstick .",
     "buildonly": "graph build",
