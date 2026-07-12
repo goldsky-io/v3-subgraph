@@ -7,6 +7,7 @@
 | 2026-07-12 | self | Asked `gh repo fork` to create `goldsky-io/v3-subgraph` without checking whether that fork already existed; GitHub created an unwanted `v3-subgraph-1`. | Run `gh repo view <org>/<name>` before forking; clone and reuse an existing upstream fork. |
 | 2026-07-12 | user | Built the deploy artifact with the guessed network slug `robinhood-chain`; Goldsky rejected it as unsupported. | The registered chain/network slug is `robinhood-mainnet`; build and deploy manifests with that exact value. |
 | 2026-07-12 | reviewer | Cached best-pool selection assumed only the token's own pools could change ranking, but a partner whitelist token's `derivedETH` can change in an unrelated pool. | Version pricing caches globally: bump the bundle revision whenever any whitelist token's derived price changes, and only use a token's cached pool when its revision matches. |
+| 2026-07-12 | self | Used the nonexistent plural command `goldsky subgraph logs`. | The Goldsky CLI command is singular: `goldsky subgraph log <name/version>`. |
 
 ## User Preferences
 - Keep responses extremely concise.
