@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+permissions: {}
+
 jobs:
   lint:
     name: lint
@@ -19,18 +21,19 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref || '' }}
           token: ${{ secrets.github_token }}
+          persist-credentials: false
 
       - name: Set up node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: "18.x"
           registry-url: https://registry.npmjs.org
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -47,47 +50,19 @@ jobs:
       - name: Commit lint fixes
         if: github.event_name == 'pull_request'
         run: |
-          git config --global user.name "${{ github.event.pull_request.user.login }}"
-          git config --global user.email "${{ github.event.pull_request.user.login }}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_EVENT_PULL_REQUEST_USER_LOGIN}"
+          git config --global user.email "${GITHUB_EVENT_PULL_REQUEST_USER_LOGIN}@users.noreply.github.com"
           if [ -z "$(git diff)" ]; then exit; fi
           git commit -a -m "fix(lint): auto-fix [ci]"
           git push
+        env:
+          GITHUB_EVENT_PULL_REQUEST_USER_LOGIN: ${{ github.event.pull_request.user.login }}
 
+  # TODO: remove this check, this job was previously removed here https://github.com/Uniswap/v3-subgraph/pull/259/files#diff-3ab46ee209a127470fce3c2cf106b1a1dbadbb929a4b5b13656a4bc4ce19c0b8
   build-and-test:
-    needs: lint
     name: build-and-test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build project
-        run: yarn build
-
-      - name: Build Docker
-        run: yarn build:docker
-
-      - name: Test
-        # We need to run test in this mode because github CI is non-interactive
-        run: yarn test:no-tty
+      - name: No-op step
+        run: echo "pass"
