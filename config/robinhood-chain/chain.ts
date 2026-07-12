@@ -1,0 +1,40 @@
+import { Address, BigDecimal, BigInt } from '@graphprotocol/graph-ts'
+
+// Robinhood Chain (chainId 4663). The reference token is WETH, priced via the WETH/USDG pool.
+// USDG ("Global Dollar") is the USD stablecoin (6 decimals).
+// STABLE_TOKEN_POOL is the WETH/USDG pool used to derive the ETH price in USD.
+const WETH = '0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73'.toLowerCase()
+const USDG = '0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168'.toLowerCase()
+const WETH_USDG_POOL = '0x69bfaf19c9f377bb306a89aed9f6b07e2c1a8d9a' // WETH/USDG v3 pool (0.05%)
+
+export const FACTORY_ADDRESS = '0x1f7d7550b1b028f7571e69a784071f0205fd2efa'
+
+export const REFERENCE_TOKEN = WETH
+export const STABLE_TOKEN_POOL = WETH_USDG_POOL
+
+export const TVL_MULTIPLIER_THRESHOLD = '2'
+export const MATURE_MARKET = '1000000'
+export const MINIMUM_NATIVE_LOCKED = BigDecimal.fromString('1')
+
+export const ROLL_DELETE_HOUR = 768
+export const ROLL_DELETE_MINUTE = 1680
+
+export const ROLL_DELETE_HOUR_LIMITER = BigInt.fromI32(500)
+export const ROLL_DELETE_MINUTE_LIMITER = BigInt.fromI32(1000)
+
+export const WHITELIST_TOKENS: string[] = [WETH, USDG]
+
+export const STABLE_COINS: string[] = [USDG]
+
+export const SKIP_POOLS: string[] = []
+
+export const POOL_MAPINGS: Array<Address[]> = []
+
+export class TokenDefinition {
+  address: Address
+  symbol: string
+  name: string
+  decimals: BigInt
+}
+
+export const STATIC_TOKEN_DEFINITIONS: TokenDefinition[] = []
