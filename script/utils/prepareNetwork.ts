@@ -19,7 +19,6 @@ export enum NETWORK {
   MONAD = 'monad',
   OPTIMISM = 'optimism',
   ROBINHOOD = 'robinhood-mainnet',
-  ROBINHOOD_CHAIN = 'robinhood-chain',
   SONEIUM = 'soneium-mainnet',
   TEMPO = 'tempo',
   UNICHAIN = 'unichain-mainnet',
